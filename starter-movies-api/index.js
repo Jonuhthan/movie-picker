@@ -1,4 +1,6 @@
-const express = require("express");	// initializes express object
+// driver code for API
+
+const express = require("express");	// import express
 const app = express();	// app is used with express object with default parameters
 const PORT = 8080;	// listen on port 8080
 
@@ -26,6 +28,6 @@ app.get("/about/:name", (req, res) => {
 const movieRouter = require('./routes/movies_routes');
 app.use('/movies', movieRouter);
 
-app.listen(PORT, () => {
+app.listen(PORT, () => {	// begin listening for users
 	console.log(`Server is running on port ${PORT}.`);
 });

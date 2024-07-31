@@ -1,6 +1,6 @@
 import './Movie.css';
 
-const Movie = ({ name, genre, image }) => {
+const Movie = ({ name, genre, image }) => { // movie component props
     return (
       <div className='movie'>
         <img src={image} alt={name + ' movie poster'}></img>

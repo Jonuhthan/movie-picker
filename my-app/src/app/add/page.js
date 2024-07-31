@@ -2,15 +2,16 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import 'AddMovie.css';
 
 // src/app/add/AddMovie.js
 const AddMovie = () => {
-  const router = useRouter();
+  const router = useRouter(); // allows ability to change routes within components
   const [name, setName] = useState('');
   const [genre, setGenre] = useState('');
   const [image, setImage] = useState('');
 
-  const nameHandler = (event) => {
+  const nameHandler = (event) => {  // wait for respective handler before updating name, genre, and img
     setName(event.target.value);
   };
 
@@ -22,9 +23,9 @@ const AddMovie = () => {
     setImage(event.target.value);
   };
 
-  const addMovieHandler = (event) => {
+  const addMovieHandler = () => {   // when called, initializes new movie and makes post request to add it to the current array of movies
     const newMovie = {
-      name: name,
+      name: name,   // key values MATTER --> they represent the fields the API expects and should match with them
       genre: genre,
       img: image,
     };
@@ -37,7 +38,7 @@ const AddMovie = () => {
       },
       body: JSON.stringify(newMovie)
     })
-    .then(router.push('/'))
+    .then(router.push('/')) // redirect user to /movies
     .catch(err => console.log(err));
   };
 
