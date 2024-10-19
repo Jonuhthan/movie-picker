@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import 'AddMovie.css';
+import './AddMovie.css';
 
 // src/app/add/AddMovie.js
 const AddMovie = () => {
